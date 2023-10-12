@@ -28,11 +28,19 @@ hi(None)                     | Hi!
 ------------------- mucdo: kho -----------------
 hi('Mom', 'Dad')             | Hi Mom, and Dad!
 hi('A', 'B', 'C')            | Hi A, B, and C!
-hi('1', '22', '333', '4444') | Hi 1, 22, 333 and 4444!
+hi('1', '22', '333', '4444') | Hi 1, 22, 333 and 4444! 
 """
 #endregion debai
 
 #region bailam
-def hi(name):
-  return 'todo'
+def hi(*args,**kargs):
+  if (len(args) != 1) and (len(args) != 0):
+    namestr = ', '.join(args[0:-1])
+    namestr = f'{namestr}, and {args[-1]}'
+    return f"Hi {namestr}!"    
+  if kargs != None:
+    name = kargs.get('name')
+    if (name == None) or (name == ''):
+      return "Hi!"
+    return f"Hi {name}!"
 #endregion bailam
